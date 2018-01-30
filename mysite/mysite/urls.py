@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     #include()会截取与该点匹配的URL的前面部分，并将剩余的字符串发送到polls.urls以进行进一步处理
-    url(r'^polls/', include('polls.urls'))
+    #如果项目中有多个应用，模板标签中使用url方法生成链接时，需要命名空间加以区分对应的url方法
+    url(r'^polls/', include('polls.urls', namespace='polls')),
 ]
